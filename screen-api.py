@@ -14,13 +14,16 @@
 # the webhook can then be called with eg. screenpi_ip:5000/screen/on, off, timer?duration=120
 #
 
+# Configuration of video stream in following line
+omx_start="omxplayer --display :4 --aspect-mode stretch --win 0,80,320,345 --crop 0,200,1080,1850 http://192.168.0.85:8082/"
+omx_kill="sudo killall omxplayer.bin"
+
+
 from flask import Flask
 from flask import Response
 from flask import request
 import subprocess
 import time
-import sys
-sys.path.append("/home/pi/screenpi") # configure different path here if needed
 import screen-api-conf
 
 app = Flask (__name__)
@@ -66,3 +69,9 @@ def screen_off():
 
 if __name__ ==  '__main__':
         app.run(debug=True)
+
+
+
+
+
+
