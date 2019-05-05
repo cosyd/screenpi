@@ -15,7 +15,7 @@ After flashing it but before booting it up, add a wpa_supplicant.conf with your 
 Upon the first boot, change the root password,  configure it, and upgrade it to the latest and install git:
 ```
 passwd
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get -y update && sudo apt-get -y upgrade
 sudo raspi-config
 ```
 In raspi-config, set the GPU memory to 256 MB to boost up the GPU performance (under advanced options), give it a nice hostname - e.g. 'screenpi' and set your timezone + locales correctly. Also, set the boot up option to "splash screen" so it looks tidier when it boots up.
