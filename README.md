@@ -34,24 +34,52 @@ Be careful, the waveshare driver aggresively overwrites some system files. If yo
 
 ### Installing
 
-Now pull the installation script to the pi:
+Now pull the repository with the sample config files and script to the pi:
 ```
-cd /tmp
-wget https://raw.githubusercontent.com/dpsimon/screenpi/master/install.sh
+cd /home/pi
+git clone https://github.com/dpsimon/screenpi.git 
 ```
-Now prepare and execute the installation script:
+And configure the URL in the screen-api.py file:
 
 ```
-sudo chmod a+x install.sh
-sudo ./install.sh
+sudo nano screen-api.py
 ```
-Attention, the script overwrites the config.txt, 99-calibration.conf and modifies the cmdline.txt system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, also here better do the steps manually and create backups. 
+by modifying the line omx_start="..." parameter to include your video stream URL (and potentially further parameters, see below the manual of omxplayer).
 
 ## Configuration
 
-Edit the configuration file 
+Configure the screen to fit the dimensions of the frame and rotating it by 90°
 ```
-sudo nano /home/pi/screenpi/screen-api-conf.py
+sudo nano /boot/config.txt
+```
+by setting these values in /boot/config.txt (see also file in the repository)
+```
+disable_overscan=1
+overscan_top=90
+overscan_bottom=30
+dtoverlay=waveshare35a:rotate=0
+start_x=1
+gpu_mem=256
+hdmi_blanking=1
+disable_touchscreen=1
+
+```
+and by creating this directory and creating a further config file:
+```
+sudo mkdir /etc/X11/xorg.conf.d
+sudo nano /etc/X11/xorg.conf.d/99-calibration.conf
+```
+with this content (see also file in repository)
+```
+Section "InputClass"
+        Identifier "calibration"
+        MatchProduct "ADS7846 Touchscreen"
+# 90 degrees rotated
+        Option "Calibration" "219 3835 219 3984 "
+        Option "SwapAxes" "0"
+#       Option "Calibration" "3853 170 288 3796"
+#       Option "SwapAxes" "1"
+EndSection
 ```
 to configure your stream and the parameters. To optimally configure the parameters of your omxplayer, check out especially its win, crop and aspect-ratio parameters: [omxplayer](https://github.com/huceke/omxplayer/)
 
@@ -103,7 +131,3 @@ Pull requests welcome. The project has been done in some spare time on the side,
 ## Authors
 
 * **Simon R** - *Initial work* - [dpsimon](https://github.com/dpsimon)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
