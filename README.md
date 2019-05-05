@@ -42,7 +42,7 @@ Edit the configuration file
 ```
 sudo nano /home/pi/screen-api.conf
 ```
-to configure your stream and the parameters. To optimally configure the parameters of your omxplayer, check out especially its win, crop and aspect-ratio parameters: https://elinux.org/Omxplayer
+to configure your stream and the parameters. To optimally configure the parameters of your omxplayer, check out especially its win, crop and aspect-ratio parameters: [omxplayer](https://github.com/huceke/omxplayer/)
 
 ## Using the interface
 
@@ -55,57 +55,32 @@ curl http://screenpi:5000/screen/timer?duration=120
 
 ### Integrating it into your home automation
 
-Just call 
-
+You can call the API to start up the screen from within your favorite home automation, e.g. in a node.js script 
 ```
-Give an example
+var request     = require('request');  // http requests to set outbound webhooks
+request.get("http://screen:5000/screen/timer?duration=300");
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [omxplayer](https://github.com/huceke/omxplayer/) - Video Player
+* [flask](https://github.com/pallets/flask) - API
+* [Waveshare LCD](https://github.com/waveshare/LCD-show) - Waveshare LCD driver
+
+## Ideas for further improvements
+
+The screen currently just blanks when not used, as this particular Waveshare LCD does not support backlight power-off. There are hardware-tweaks, but if someone finds a simple solution (e.g. cheap LCD with power-off with same dimensions), this would be very interesting.
+The omxplayer is currently hard killed with a killall. All other solutions did not work reliably (timing the playtime, handing a process ID to the python script and killing only that process). Again a cleaner solution would be great. 
+The API is very barebone and does not feedback nice responses, also its behaviour in the timer mode, sending the response only after the time is up could be improved.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+Pull requests welcome. The project has been done in some spare time on the side, please do understand if it takes a while for me to respond.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Simon R** - *Initial work* - [dpsimon](https://github.com/dpsimon)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
-
-This repository holds the sample config files and an installation shell script assuming a plain, freshly installed raspberry.
-
-1) Install clean raspberry (remember wpa_supplicant and ssh files before launching it)
-2) Update: sudo apt-get update && sudo apt-get upgrade; raspi-config to set GPU memory to 256 (under advanced options); set hostname, timezone, locales
-3) run the install.sh script
