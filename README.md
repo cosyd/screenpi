@@ -24,21 +24,24 @@ If you have never done the above steps before, google around for more details on
 
 ### Installing
 
-Now pull this repository with the installation script to the pi:
+Now pull the installation script to the pi:
 ```
 cd /tmp
-git clone https://github.com/dpsimon/screenpi.git
+wget https://raw.githubusercontent.com/dpsimon/screenpi/master/install.sh
 ```
-Now execute the installation script:
+Now prepare and execute the installation script:
 
 ```
+sudo chmod a+x install.sh
 sudo ./install.sh
 ```
+Attention, the script overwrites some system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, better do the steps manually. In that case check out the script and enter it one by one / edit the config files manually. Also bear in mind, even if you do that - the waveshare driver is also agressively and overwrites config files, so pay attention before applying it to an existing system, too.
+
 ## Configuring the stream
 
 Edit the configuration file 
 ```
-sudo nano /home/pi/screen-api.conf
+sudo nano /home/pi/screenpi/screen-api-conf.py
 ```
 to configure your stream and the parameters. To optimally configure the parameters of your omxplayer, check out especially its win, crop and aspect-ratio parameters: [omxplayer](https://github.com/huceke/omxplayer/)
 
