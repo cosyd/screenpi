@@ -1,6 +1,6 @@
 # ScreenPi
 
-ScreenPi is a small project to run a video player on a Raspberry Pi, mounted in a wall plug frame using a Waveshare 3.5" LCD Display https://www.waveshare.com/wiki/3.5inch_RPi_LCD_(A)
+ScreenPi is a small project to run a video player on a Raspberry Pi, mounted in a wall plug frame using a Waveshare 3.5" LCD Display.
 
 ## Getting Started
 
@@ -47,13 +47,19 @@ sudo ./install.sh
 ```
 Attention, the script overwrites the config.txt, 99-calibration.conf and modifies the cmdline.txt system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, also here better do the steps manually and create backups. 
 
-## Configuring the stream
+## Configuration
 
 Edit the configuration file 
 ```
 sudo nano /home/pi/screenpi/screen-api-conf.py
 ```
 to configure your stream and the parameters. To optimally configure the parameters of your omxplayer, check out especially its win, crop and aspect-ratio parameters: [omxplayer](https://github.com/huceke/omxplayer/)
+
+Finally, edit /etc/rc.local and append these two lines to the file to have an auto startup upon boot:
+```
+export FLASK_APP=/home/pi/screen-api/screen-api.py
+python3 -m flask run --host 0.0.0.0 &
+```
 
 ## Using the interface
 
