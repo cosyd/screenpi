@@ -8,6 +8,9 @@
 # 1) Install clean raspberry with stretch FULL (remember wpa_supplicant and ssh)
 # 2) Update: sudo apt-get update && sudo apt-get upgrade; raspi-config to set GPU memory to 256 (under advanced options); set hostname, timezone, locales
 
+## Get git and omxplayer installed
+sudo apt-get install git omxplayer
+
 ## Get the LCD drivers installed
 cd /tmp
 git clone https://github.com/waveshare/LCD-show.git
@@ -16,9 +19,6 @@ cd LCD-show
 sudo ./LCD35-show lite 
 # for Full Raspbian, choose
 # sudo ./LCD35-show
-
-## Get omxplayer installed
-sudo apt-get install omxplayer
 
 ## Get the screenpi API script installed
 mkdir /home/pi/screenpi
