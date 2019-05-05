@@ -61,7 +61,7 @@ sudo nano /etc/rc.local
 ```
 and append these two lines to the file to have an auto startup upon boot:
 ```
-export FLASK_APP=/home/pi/screen-api/screen-api.py
+export FLASK_APP=/home/pi/screenpi/screen-api.py
 python3 -m flask run --host 0.0.0.0 &
 ```
 
