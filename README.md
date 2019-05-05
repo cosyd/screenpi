@@ -35,7 +35,7 @@ Now prepare and execute the installation script:
 sudo chmod a+x install.sh
 sudo ./install.sh
 ```
-Attention, the script overwrites some system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, better do the steps manually. In that case check out the script and enter it one by one / edit the config files manually. Also bear in mind, even if you do that - the waveshare driver is also agressively and overwrites config files, so pay attention before applying it to an existing system, too.
+Attention, the script overwrites some system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, better do the steps manually. In that case check out the script and enter it one by one / edit the config files manually. Also bear in mind, even if you do that - the waveshare driver is also agressive and overwrites config files, so pay attention before applying it to an existing system, too.
 
 ## Configuring the stream
 
