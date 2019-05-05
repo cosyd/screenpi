@@ -19,7 +19,7 @@ git clone https://github.com/dpsimon/screenpi
 sudo mv /boot/config.txt /boot/config.txt.backup
 sudo cp config.txt /boot
 sudo mv /etc/X11/xorg.conf.d/99-calibration.conf /etc/X11/xorg.conf.d/99-calibration.conf.backup
-mkdir /etc/X11/xorg.conf.d
+sudo mkdir /etc/X11/xorg.conf.d
 sudo cp 99-calibration.conf /etc/X11/xorg.conf.d/99-calibration.conf
 
 # modify cmdline.txt so it has consoleblank=15 to blank the console after a few secs
