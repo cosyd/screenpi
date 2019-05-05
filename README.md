@@ -8,8 +8,7 @@ These instructions will get you a copy of the project up and running.
 
 ### Prerequisites
 
-Install a clean raspberry from scratch by downloading the latest raspian and flashing it to an SD card. It is recommended to use one of the more powerful Raspberries, they cost only little more but have much more reserves in their computing power, e.g the A+ or B+.
-The A+ is a very good choice as it is nice and small to fit well behind the socket.
+Install a clean raspberry from scratch by downloading the latest raspian full image and flashing it to an SD card. The LCD driver does not work with lite (event though waveshare claims it does with a special parameter "lite", does not work with current versions). Regarding the hardware, it is recommended to use one of the more powerful Raspberries, they cost only little more but have much more reserves in their computing power, e.g the A+ or B+. The A+ is a very good choice as it is nice and small to fit well behind the socket.
 
 After flashing it but before booting it up, add a wpa_supplicant.conf with your WiFi details and an empty ssh file (to enable telnet on it) before you boot it up.
 
