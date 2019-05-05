@@ -24,7 +24,6 @@ from flask import Response
 from flask import request
 import subprocess
 import time
-import screen-api-conf
 
 app = Flask (__name__)
 def shellcall(callstring):
