@@ -22,6 +22,16 @@ In raspi-config, set the GPU memory to 256 MB to boost up the GPU performance (u
 
 If you have never done the above steps before, google around for more details on each step.
 
+Now install the LCD drivers. As this reboots the machine, it is not part of the install.sh script.
+
+```
+cd /home/pi
+git clone https://github.com/waveshare/LCD-show.git
+cd LCD-show
+sudo ./LCD35-show 
+```
+Be careful, the waveshare driver aggresively overwrites some system files. If you do this to a system that is configured in further ways, make backups before running this.
+
 ### Installing
 
 Now pull the installation script to the pi:
@@ -35,7 +45,7 @@ Now prepare and execute the installation script:
 sudo chmod a+x install.sh
 sudo ./install.sh
 ```
-Attention, the script overwrites some system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, better do the steps manually. In that case check out the script and enter it one by one / edit the config files manually. Also bear in mind, even if you do that - the waveshare driver is also agressive and overwrites config files, so pay attention before applying it to an existing system, too.
+Attention, the script overwrites the config.txt, 99-calibration.conf and modifies the cmdline.txt system config files. Even though it creates backups in the process: If you are installing this to a Raspi Pi with more stuff already on it, also here better do the steps manually and create backups. 
 
 ## Configuring the stream
 
