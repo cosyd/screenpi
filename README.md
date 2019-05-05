@@ -55,7 +55,11 @@ sudo nano /home/pi/screenpi/screen-api-conf.py
 ```
 to configure your stream and the parameters. To optimally configure the parameters of your omxplayer, check out especially its win, crop and aspect-ratio parameters: [omxplayer](https://github.com/huceke/omxplayer/)
 
-Finally, edit /etc/rc.local and append these two lines to the file to have an auto startup upon boot:
+Finally, edit /etc/rc.local 
+```
+sudo nano /etc/rc.local
+```
+and append these two lines to the file to have an auto startup upon boot:
 ```
 export FLASK_APP=/home/pi/screen-api/screen-api.py
 python3 -m flask run --host 0.0.0.0 &
