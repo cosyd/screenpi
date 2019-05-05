@@ -1,20 +1,17 @@
 #
 #       screen-api.py
 #
-#       Simon Rehbach April 2019
+#       Simon Rehbach April/May 2019
 #
 #       runs omxplayer video stream on a waveshare display with cropped dimensions to fit gira frame
 #       uses flask to create a simple API to start / stop the screen
-#       can be configured to run at startup; set e.g. /boot/cmdline.txt consoleblank=45 to time out screen to blank when unused
 #
+
 #
-#add this to your rc.local: run webserver for api to invoke screen
-#
-#export FLASK_APP=/usr/local/screen-api/screen-api.py
-#python3 -m flask run --host 0.0.0.0 &
-#
-#the webhook can then be called with eg. screenpi_ip:5000/screen/on, off, timer?duration=120
-#
+# To run as server for API: add this to your rc.local
+#   export FLASK_APP=/home/pi/screen-api/screen-api.py
+#   python3 -m flask run --host 0.0.0.0 &
+# the webhook can then be called with eg. screenpi_ip:5000/screen/on, off, timer?duration=120
 #
 
 from flask import Flask
@@ -22,6 +19,8 @@ from flask import Response
 from flask import request
 import subprocess
 import time
+import sys
+sys.path.append("/home/pi/screenpi") # configure different path here if needed
 import screen-api-conf
 
 app = Flask (__name__)
@@ -67,9 +66,3 @@ def screen_off():
 
 if __name__ ==  '__main__':
         app.run(debug=True)
-
-
-
-
-
-
