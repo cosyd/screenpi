@@ -20,7 +20,7 @@ sudo raspi-config
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get git
 ```
-In raspi-config, set the GPU memory to 256 MB to boost up the GPU performance (under advanced options), give it a nice hostname - e.g. 'screenpi' and set your timezone + locales correctly.
+In raspi-config, set the GPU memory to 256 MB to boost up the GPU performance (under advanced options), give it a nice hostname - e.g. 'screenpi' and set your timezone + locales correctly. Also, set the boot up option to "splash screen" so it looks tidier when it boots up.
 
 If you have never done the above steps before, google around for more details on each step.
 
