@@ -66,6 +66,9 @@ request.get("http://screen:5000/screen/timer?duration=300");
 * [omxplayer](https://github.com/huceke/omxplayer/) - Video Player
 * [flask](https://github.com/pallets/flask) - API
 * [Waveshare LCD](https://github.com/waveshare/LCD-show) - Waveshare LCD driver
+If something does not work with the display, check out this manual for config.txt for more options:
+https://www.raspberrypi.org/documentation/configuration/config-txt/video.md  
+
 
 ## Ideas for further improvements
 
