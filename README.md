@@ -37,7 +37,7 @@ Be careful, the waveshare driver aggresively overwrites some system files. If yo
 Now pull the repository with the sample config files and script to the pi:
 ```
 cd /home/pi
-git clone https://github.com/dpsimon/screenpi.git 
+git clone https://github.com/cosyd/screenpi.git 
 ```
 And configure the URL in the screen-api.py file:
 
