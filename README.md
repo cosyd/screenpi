@@ -123,11 +123,3 @@ request.get("http://screen:5000/screen/timer?duration=300");
 The screen currently just blanks when not used, as this particular Waveshare LCD does not support backlight power-off. There are hardware-tweaks, but if someone finds a simple solution (e.g. cheap LCD with power-off with same dimensions), this would be very interesting.
 The omxplayer is currently hard killed with a killall. All other solutions did not work reliably (timing the playtime, handing a process ID to the python script and killing only that process). Again a cleaner solution would be great. 
 The API is very barebone and does not feedback nice responses, also its behaviour in the timer mode, sending the response only after the time is up could be improved.
-
-## Contributing
-
-Pull requests welcome. The project has been done in some spare time on the side, please do understand if it takes a while for me to respond.
-
-## Authors
-
-* **Simon R** - *Initial work* - [dpsimon](https://github.com/dpsimon)
